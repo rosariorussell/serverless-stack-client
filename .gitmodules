@@ -1,0 +1,4 @@
+[submodule "themes/hugo-assembly"]
+    path = themes/hugo-assembly
+    url = "https://github.com/salsysd/hugo-assembly"
+
