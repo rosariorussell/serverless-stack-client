@@ -9,7 +9,7 @@
 		padding: 0px;
 		background: #181818;
 		font-family: 'Didact Gothic', sans-serif;
-		font-size: 12pt;
+		font-size: 16pt;
 		font-weight: 200;
 	}
 
@@ -384,7 +384,7 @@
 
 	#banner
 	{
-		padding-top: 10em;
+		padding-top: 2em;
 		text-align: center;
 	}
 
