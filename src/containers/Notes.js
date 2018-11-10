@@ -43,7 +43,7 @@ export default class Notes extends Component {
   }
 
   getNote() {
-    return API.get("notes", `/notes/${this.props.match.params.id}`);
+    return API.get("notes", `/tasks/${this.props.match.params.id}`);
   }
 
   validateForm() {
@@ -65,7 +65,7 @@ export default class Notes extends Component {
   }
 
   saveNote(note) {
-    return API.put("notes", `/notes/${this.props.match.params.id}`, {
+    return API.put("notes", `/tasks/${this.props.match.params.id}`, {
       body: note
     });
   }
@@ -99,7 +99,7 @@ export default class Notes extends Component {
   }
 
   deleteNote() {
-    return API.del("notes", `/notes/${this.props.match.params.id}`);
+    return API.del("notes", `/tasks/${this.props.match.params.id}`);
   }
 
   handleDelete = async event => {
