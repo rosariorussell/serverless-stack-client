@@ -2,17 +2,17 @@ const dev = {
   STRIPE_KEY: "pk_test_8rGGJh99hpCamR3vhDGLbfce",
   s3: {
     REGION: "us-east-1",
-    BUCKET: "topcofounder-tasks-dev-attachmentsbucket-nzfq609zq1y7"
+    BUCKET: "topcofounder-tasks-dev-attachmentsbucket-s6ezndyk96qi"
   },
   apiGateway: {
     REGION: "us-east-1",
-    URL: "https://mu2005o9xb.execute-api.us-east-1.amazonaws.com/dev"
+    URL: "https://6u94edswr3.execute-api.us-east-1.amazonaws.com/dev"
   },
   cognito: {
     REGION: "us-east-1",
-    USER_POOL_ID: "us-east-1_yOIrRfyo3",
-    APP_CLIENT_ID: "2frrv98aj87rqeh3u8026q3uh4",
-    IDENTITY_POOL_ID: "us-east-1:4281ced2-9050-4c5c-b410-7ff8b0c5c1a0"
+    USER_POOL_ID: "us-east-1_rLuZ0MEDF",
+    APP_CLIENT_ID: "k8t2qjpsvkclqanhn52uuvlln",
+    IDENTITY_POOL_ID: "us-east-1:e58f0b41-5e78-487c-a944-afe95a2b607d"
   }
 };
 
@@ -20,17 +20,17 @@ const prod = {
   STRIPE_KEY: "pk_test_8rGGJh99hpCamR3vhDGLbfce",
   s3: {
     REGION: "us-east-1",
-    BUCKET: "topcofounder-tasks-prod-attachmentsbucket-lxvmnjhemw8v"
+    BUCKET: "topcofounder-tasks-prod-attachmentsbucket-1hy4hgfc7ifib"
   },
   apiGateway: {
     REGION: "us-east-1",
-    URL: "https://jqzdlq9p87.execute-api.us-east-1.amazonaws.com/prod"
+    URL: "https://atkeza7ok4.execute-api.us-east-1.amazonaws.com/prod"
   },
   cognito: {
     REGION: "us-east-1",
-    USER_POOL_ID: "us-east-1_eTquHPWkG",
-    APP_CLIENT_ID: "ec6b3h80nchah7a1f5vufb0bf",
-    IDENTITY_POOL_ID: "us-east-1:e68fc2ca-12ff-461f-82ea-26d349ee3d69"
+    USER_POOL_ID: "us-east-1_XZPWLYHIn",
+    APP_CLIENT_ID: "41nllc41p3gofr8lum3fthea1r",
+    IDENTITY_POOL_ID: "us-east-1:3c51a3f2-b5a3-4dd7-9dc0-63a6e154302a"
   }
 };
 
