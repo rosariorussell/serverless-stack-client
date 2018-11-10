@@ -1,15 +1,15 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Home from "./containers/Home";
-import NotFound from "./containers/NotFound";
-import Login from "./containers/Login";
-import AppliedRoute from "./components/AppliedRoute";
-import Signup from "./containers/Signup";
-import NewTask from "./containers/NewTask";
-import Tasks from "./containers/Tasks";
-import AuthenticatedRoute from "./components/AuthenticatedRoute";
-import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
-import Settings from "./containers/Settings";
+import Home from "./containers/Home/Home";
+import NotFound from "./containers/NotFound/NotFound";
+import Login from "./containers/Login/Login";
+import AppliedRoute from "./components/Routes/AppliedRoute";
+import Signup from "./containers/Signup/Signup";
+import NewTask from "./containers/NewTask/NewTask";
+import Tasks from "./containers/Tasks/Tasks";
+import AuthenticatedRoute from "./components/Routes/AuthenticatedRoute";
+import UnauthenticatedRoute from "./components/Routes/UnauthenticatedRoute";
+import Settings from "./containers/Settings/Settings";
 
 
 

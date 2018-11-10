@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import LoaderButton from "../components/LoaderButton";
-import config from "../config";
+import LoaderButton from "../../components/LoaderButton/LoaderButton";
+import config from "../../config";
 import "./NewTask.css";
 import { API } from "aws-amplify";
-import { s3Upload } from "../libs/awsLib";
+import { s3Upload } from "../../libs/awsLib";
 
 
 

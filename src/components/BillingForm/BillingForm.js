@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import { CardElement, injectStripe } from "react-stripe-elements";
-import LoaderButton from "./LoaderButton";
+import LoaderButton from "../LoaderButton/LoaderButton";
 import "./BillingForm.css";
 
 class BillingForm extends Component {

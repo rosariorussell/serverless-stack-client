@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { API, Storage } from "aws-amplify";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import LoaderButton from "../components/LoaderButton";
-import config from "../config";
+import LoaderButton from "../../components/LoaderButton/LoaderButton";
+import config from "../../config";
 import "./Tasks.css";
-import { s3Upload } from "../libs/awsLib";
+import { s3Upload } from "../../libs/awsLib";
 
 
 export default class Tasks extends Component {
