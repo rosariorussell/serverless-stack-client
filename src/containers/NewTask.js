@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
-import "./NewNote.css";
+import "./NewTask.css";
 import { API } from "aws-amplify";
 import { s3Upload } from "../libs/awsLib";
 
 
 
-export default class NewNote extends Component {
+export default class NewTask extends Component {
   constructor(props) {
     super(props);
 
@@ -49,7 +49,7 @@ export default class NewNote extends Component {
         ? await s3Upload(this.file)
         : null;
 
-      await this.createNote({
+      await this.createTask({
         attachment,
         content: this.state.content
       });
@@ -60,15 +60,15 @@ export default class NewNote extends Component {
     }
   }
 
-  createNote(note) {
-    return API.post("notes", "/tasks", {
-      body: note
+  createTask(task) {
+    return API.post("tasks", "/tasks", {
+      body: task
     });
   }
 
   render() {
     return (
-      <div className="NewNote">
+      <div className="NewTask">
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="content">
             <FormControl

@@ -11,7 +11,7 @@ export default class Home extends Component {
 
     this.state = {
       isLoading: true,
-      notes: []
+      tasks: []
     };
   }
 
@@ -21,8 +21,8 @@ export default class Home extends Component {
     }
 
     try {
-      const notes = await this.notes();
-      this.setState({ notes });
+      const tasks = await this.tasks();
+      this.setState({ tasks });
     } catch (e) {
       alert(e);
     }
@@ -30,35 +30,35 @@ export default class Home extends Component {
     this.setState({ isLoading: false });
   }
 
-  notes() {
-    return API.get("notes", "/tasks");
+  tasks() {
+    return API.get("tasks", "/tasks");
   }
 
-  renderNotesList(notes) {
-    return [{}].concat(notes).map(
-      (note, i) =>
+  renderTasksList(tasks) {
+    return [{}].concat(tasks).map(
+      (task, i) =>
         i !== 0
           ? <ListGroupItem
-            key={note.noteId}
-            href={`/notes/${note.noteId}`}
-            onClick={this.handleNoteClick}
-            header={note.content.trim().split("\n")[0]}
+            key={task.taskId}
+            href={`/tasks/${task.taskId}`}
+            onClick={this.handleTaskClick}
+            header={task.content.trim().split("\n")[0]}
           >
-            {"Created: " + new Date(note.createdAt).toLocaleString()}
+            {"Created: " + new Date(task.createdAt).toLocaleString()}
           </ListGroupItem>
           : <ListGroupItem
             key="new"
-            href="/notes/new"
-            onClick={this.handleNoteClick}
+            href="/tasks/new"
+            onClick={this.handleTaskClick}
           >
             <h4>
-              <b>{"\uFF0B"}</b> Create a new note
+              <b>{"\uFF0B"}</b> Create a new task
               </h4>
           </ListGroupItem>
     );
   }
 
-  handleNoteClick = event => {
+  handleTaskClick = event => {
     event.preventDefault();
     this.props.history.push(event.currentTarget.getAttribute("href"));
   }
@@ -68,7 +68,7 @@ export default class Home extends Component {
     return (
       <div className="lander">
         <h1>TopCofounder</h1>
-        <p>A simple note taking app</p>
+        <p>A simple task taking app</p>
         <div>
           <Link to="/login" className="btn btn-info btn-lg">
             Login
@@ -81,12 +81,12 @@ export default class Home extends Component {
     );
   }
 
-  renderNotes() {
+  renderTasks() {
     return (
-      <div className="notes">
-        <PageHeader>Your Notes</PageHeader>
+      <div className="tasks">
+        <PageHeader>Your Tasks</PageHeader>
         <ListGroup>
-          {!this.state.isLoading && this.renderNotesList(this.state.notes)}
+          {!this.state.isLoading && this.renderTasksList(this.state.tasks)}
         </ListGroup>
       </div>
     );
@@ -95,7 +95,7 @@ export default class Home extends Component {
   render() {
     return (
       <div className="Home">
-        {this.props.isAuthenticated ? this.renderNotes() : this.renderLander()}
+        {this.props.isAuthenticated ? this.renderTasks() : this.renderLander()}
       </div>
     );
   }

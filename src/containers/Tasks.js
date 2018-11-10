@@ -3,11 +3,11 @@ import { API, Storage } from "aws-amplify";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
-import "./Notes.css";
+import "./Tasks.css";
 import { s3Upload } from "../libs/awsLib";
 
 
-export default class Notes extends Component {
+export default class Tasks extends Component {
   constructor(props) {
     super(props);
 
@@ -16,7 +16,7 @@ export default class Notes extends Component {
     this.state = {
       isLoading: null,
       isDeleting: null,
-      note: null,
+      task: null,
       content: "",
       attachmentURL: null
     };
@@ -25,15 +25,15 @@ export default class Notes extends Component {
   async componentDidMount() {
     try {
       let attachmentURL;
-      const note = await this.getNote();
-      const { content, attachment } = note;
+      const task = await this.getTask();
+      const { content, attachment } = task;
 
       if (attachment) {
         attachmentURL = await Storage.vault.get(attachment);
       }
 
       this.setState({
-        note,
+        task,
         content,
         attachmentURL
       });
@@ -42,8 +42,8 @@ export default class Notes extends Component {
     }
   }
 
-  getNote() {
-    return API.get("notes", `/tasks/${this.props.match.params.id}`);
+  getTask() {
+    return API.get("tasks", `/tasks/${this.props.match.params.id}`);
   }
 
   validateForm() {
@@ -64,9 +64,9 @@ export default class Notes extends Component {
     this.file = event.target.files[0];
   }
 
-  saveNote(note) {
-    return API.put("notes", `/tasks/${this.props.match.params.id}`, {
-      body: note
+  saveTask(task) {
+    return API.put("tasks", `/tasks/${this.props.match.params.id}`, {
+      body: task
     });
   }
 
@@ -87,9 +87,9 @@ export default class Notes extends Component {
         attachment = await s3Upload(this.file);
       }
 
-      await this.saveNote({
+      await this.saveTask({
         content: this.state.content,
-        attachment: attachment || this.state.note.attachment
+        attachment: attachment || this.state.task.attachment
       });
       this.props.history.push("/");
     } catch (e) {
@@ -98,15 +98,15 @@ export default class Notes extends Component {
     }
   }
 
-  deleteNote() {
-    return API.del("notes", `/tasks/${this.props.match.params.id}`);
+  deleteTask() {
+    return API.del("tasks", `/tasks/${this.props.match.params.id}`);
   }
 
   handleDelete = async event => {
     event.preventDefault();
 
     const confirmed = window.confirm(
-      "Are you sure you want to delete this note?"
+      "Are you sure you want to delete this task?"
     );
 
     if (!confirmed) {
@@ -116,7 +116,7 @@ export default class Notes extends Component {
     this.setState({ isDeleting: true });
 
     try {
-      await this.deleteNote();
+      await this.deleteTask();
       this.props.history.push("/");
     } catch (e) {
       alert(e);
@@ -126,8 +126,8 @@ export default class Notes extends Component {
 
   render() {
     return (
-      <div className="Notes">
-        {this.state.note &&
+      <div className="Tasks">
+        {this.state.task &&
           <form onSubmit={this.handleSubmit}>
             <FormGroup controlId="content">
               <FormControl
@@ -136,7 +136,7 @@ export default class Notes extends Component {
                 componentClass="textarea"
               />
             </FormGroup>
-            {this.state.note.attachment &&
+            {this.state.task.attachment &&
               <FormGroup>
                 <ControlLabel>Attachment</ControlLabel>
                 <FormControl.Static>
@@ -145,12 +145,12 @@ export default class Notes extends Component {
                     rel="noopener noreferrer"
                     href={this.state.attachmentURL}
                   >
-                    {this.formatFilename(this.state.note.attachment)}
+                    {this.formatFilename(this.state.task.attachment)}
                   </a>
                 </FormControl.Static>
               </FormGroup>}
             <FormGroup controlId="file">
-              {!this.state.note.attachment &&
+              {!this.state.task.attachment &&
                 <ControlLabel>Attachment</ControlLabel>}
               <FormControl onChange={this.handleFileChange} type="file" />
             </FormGroup>
