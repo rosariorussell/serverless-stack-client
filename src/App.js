@@ -35,7 +35,7 @@ class App extends Component {
   loadFacebookSDK() {
     window.fbAsyncInit = function() {
       window.FB.init({
-        appId            : config.FB,
+        appId            : config.social.FB,
         autoLogAppEvents : true,
         xfbml            : true,
         version          : 'v3.1'
