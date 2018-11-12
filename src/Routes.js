@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import AppliedRoute from "./components/Routes/AppliedRoute";
 import AuthenticatedRoute from "./components/Routes/AuthenticatedRoute";
 import UnauthenticatedRoute from "./components/Routes/UnauthenticatedRoute";
-import asyncComponent from "./components/AsyncComponent/AsyncComponent";
+
 
 import Home from "./containers/Home/Home";
 import NotFound from "./containers/NotFound/NotFound";
@@ -17,9 +17,9 @@ import Settings from "./containers/Settings/Settings";
 import ChangePassword from "./containers/ChangePassword/ChangePassword";
 import ChangeEmail from "./containers/ChangeEmail/ChangeEmail";
 
-const AsyncDummy = asyncComponent(() => import("./containers/Dummy/Dummy"));
-
-
+// import LoadingComponent from "./components/LazyLoadingComponent/LazyLoadingComponent"
+// import Loadable from 'react-loadable';
+// const LoadableComponent = Loadable({loader: () => import('./containers/Sandbox/LazyLoad'), loading: LoadingComponent});
 
 export default ({ childProps }) =>
 <Switch>
@@ -34,8 +34,7 @@ export default ({ childProps }) =>
   <AuthenticatedRoute path="/settings/password" exact component={ChangePassword} props={childProps}/>
   <AuthenticatedRoute path="/settings/email" exact component={ChangeEmail} props={childProps}/>
 
-  <AuthenticatedRoute path="/dummy" exact component={AsyncDummy} props={childProps}/>
+  {/* <AuthenticatedRoute path="/lazyload" exact component={LoadableComponent} props={childProps}/> */}
 
-  { /* Finally, catch all unmatched routes */ }
   <Route component={NotFound} />
 </Switch>
