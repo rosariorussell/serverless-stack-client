@@ -3,6 +3,8 @@ import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./Login.css";
 import { Auth } from "aws-amplify";
 import LoaderButton from "../../components/LoaderButton/LoaderButton";
+import { Link } from "react-router-dom";
+import FacebookButton from "../../components/FacebookButton/FacebookButton"
 
 export default class Login extends Component {
   constructor(props) {
@@ -39,6 +41,10 @@ export default class Login extends Component {
     }
   }
 
+  handleFbLogin = () => {
+    this.props.userHasAuthenticated(true);
+  };
+
   render() {
     return (
       <div className="Login">
@@ -60,6 +66,7 @@ export default class Login extends Component {
               type="password"
             />
           </FormGroup>
+          <Link to="/login/reset">Forgot password?</Link>
           <LoaderButton
             block
             bsSize="large"
@@ -69,6 +76,8 @@ export default class Login extends Component {
             text="Login"
             loadingText="Logging in…"
           />
+
+          <FacebookButton onLogin={this.handleFbLogin}/><hr />
         </form>
       </div>
     );
