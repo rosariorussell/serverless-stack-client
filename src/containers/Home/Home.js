@@ -67,8 +67,8 @@ export default class Home extends Component {
   renderLander() {
     return (
       <div className="lander">
-        <h1>TopCofounder</h1>
-        <p>A simple task taking app</p>
+        <h1>Serverless React Tasks</h1>
+        <p>A simple task app built using React on AWS Serverless</p>
         <div>
           <Link to="/login" className="btn btn-info btn-lg">
             Login

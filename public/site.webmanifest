@@ -1,6 +1,6 @@
 {
-    "short_name": "Scratch",
-    "name": "Scratch Task Taking App",
+    "short_name": "Serverless React Tasks",
+    "name": "Serverless React Tasks Task Taking App",
     "icons": [
         {
             "src": "android-chrome-192x192.png",
