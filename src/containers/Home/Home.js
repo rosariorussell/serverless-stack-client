@@ -3,6 +3,7 @@ import { PageHeader, ListGroup, ListGroupItem } from "react-bootstrap";
 import "./Home.css";
 import { API } from "aws-amplify";
 import { Link } from "react-router-dom";
+import logo from './logo.png'
 
 
 export default class Home extends Component {
@@ -67,8 +68,10 @@ export default class Home extends Component {
   renderLander() {
     return (
       <div className="lander">
-        <h1>Serverless React Tasks</h1>
-        <p>A simple task app built using React on AWS Serverless</p>
+        <img src={logo} alt="Logo" />
+        <br />
+        <br />
+        <p>A productivity app focused on helping you get stuff done</p>
         <div>
           <Link to="/login" className="btn btn-info btn-lg">
             Login

@@ -1,6 +1,6 @@
 {
-    "short_name": "Serverless React Tasks",
-    "name": "Serverless React Tasks Task Taking App",
+    "short_name": "Tasky",
+    "name": "Tasky productivity app",
     "icons": [
         {
             "src": "android-chrome-192x192.png",
